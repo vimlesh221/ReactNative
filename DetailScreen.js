@@ -6,10 +6,22 @@ import {
   View,
   Text,
   StatusBar,
+  AsyncStorage,
 } from 'react-native';
 
 
 class DetailScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    const KEY = 'USER_DATA'
+    AsyncStorage.setItem(KEY,"abc@gmail.com");
+    
+    AsyncStorage.getItem(KEY).then(asyncStorageRes => {
+        console.log("async:"+asyncStorageRes)
+    });
+      
+  }
+  
   render() {
 
     return (
